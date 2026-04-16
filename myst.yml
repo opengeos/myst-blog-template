@@ -15,7 +15,7 @@ project:
     - Blog
     - Data Science
     - Open-source Software
-  # github: username/repo
+  github: opengeos/myst-blog-template
   exclude:
     - _build
     - Thumbs.db
