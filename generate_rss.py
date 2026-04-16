@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate RSS and Atom feeds for blog posts.
 
-Reads frontmatter from ``blog/*.md``, writes ``rss.xml`` and ``atom.xml`` to the
+Reads frontmatter from ``posts/*.md``, writes ``rss.xml`` and ``atom.xml`` to the
 repository root, and (if a MyST build exists) copies them into ``_build/html/``.
 
 Usage: python generate_rss.py
@@ -71,7 +71,7 @@ def parse_post(path: Path) -> dict | None:
     return {
         "title": meta.get("title", path.stem),
         "date": date,
-        "slug": f"blog/{path.stem}",
+        "slug": f"posts/{path.stem}",
         "description": meta.get("description", ""),
         "tags": meta.get("tags", []) or [],
         "summary": summarize(match.group(2)),
@@ -112,9 +112,9 @@ def build_feed(posts: list[dict]) -> FeedGenerator:
 
 
 def main() -> None:
-    """Generate ``rss.xml`` and ``atom.xml`` from the ``blog/`` directory."""
+    """Generate ``rss.xml`` and ``atom.xml`` from the ``posts/`` directory."""
     root = Path(__file__).parent
-    blog_dir = root / "blog"
+    blog_dir = root / "posts"
     posts = [p for p in (parse_post(f) for f in blog_dir.glob("*.md")) if p]
     posts.sort(key=lambda p: p["date"], reverse=True)
 

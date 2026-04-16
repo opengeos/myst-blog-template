@@ -82,7 +82,7 @@ GISCUS_SNIPPET = """
 def main():
     """Inject Giscus comments into blog post HTML files."""
     build_dir = Path(__file__).parent / "_build" / "html"
-    blog_dir = build_dir / "blog"
+    blog_dir = build_dir / "posts"
 
     if not blog_dir.exists():
         print(f"No blog directory found at {blog_dir}")

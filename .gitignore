@@ -109,9 +109,7 @@ ENV/
 _build/
 book-clean/
 
-# CV generation
-cv.typ
-cv.pdf
+# Fonts
 fonts/
 
 # RSS/Atom feeds

@@ -1,136 +1,47 @@
 ---
-title: Jane Doe
-subtitle: Open-Source Software Engineer & Data Scientist
-description: Jane Doe, Assistant Professor at Example University, builds open-source tools for data science and machine learning.
-# thumbnail: images/profile-thumbnail.webp
+title: My Blog
+subtitle: Thoughts on data science, open-source software, and teaching.
+description: A blog about data science, open-source software, and teaching, powered by MyST Markdown.
 ---
+
+# My Blog
+
+## Subscribe
+
+- [RSS feed](/rss.xml) (or [Atom](/atom.xml))
+- [LinkedIn](https://www.linkedin.com/in/username)
+
+---
+
+## Posts
+
+### 2026
 
 ::::{grid} 1 1 2 2
 
-:::{grid-item}
-:columns: 12 12 4 4
-
-```{image} logo.png
-:alt: Jane Doe
-:width: 95%
-```
-
+:::{card} Write Journal Articles with MyST Markdown: Auto-Generate PDFs and Websites
+:link: /posts/myst-article-template
+:header: ![thumbnail](https://img.youtube.com/vi/iwL-s7aPNYQ/maxresdefault.jpg)
+April 15, 2026 - A step-by-step tutorial on writing journal articles in MyST Markdown with automatic PDF generation and website deployment using a GitHub template.
 :::
 
-:::{grid-item}
-:columns: 12 12 8 8
-
-**Software Engineer** | **Data Scientist**
-
-[Department of Computer Science](https://example.com/cs), Example University
-
-[123 Science Building](https://maps.google.com), Anytown, ST 12345
-
-[jane.doe@example.com](mailto:jane.doe@example.com) | [example.com](https://example.com)
-
-**Research Interests:** Data Science, Machine Learning, Open-Source Software Development, Cloud Computing
-
-[CV (PDF)](cv.pdf) |
-[Google Scholar](https://scholar.google.com) |
-[ORCID](https://orcid.org/0000-0000-0000-0000) |
-[LinkedIn](https://www.linkedin.com/in/username) |
-[GitHub](https://github.com/username) |
-[Twitter](https://twitter.com/username)
-
-:::
-::::
-
----
-
-## Featured Projects
-
-::::{grid} 2 2 4 4
-
-:::{card}
-:link: https://mystmd.org
-![mystmd](pages/images/myst.webp)
-+++
-**MyST**
-:::
-
-:::{card}
-:link: https://jupyterbook.org
-![jupyter-book](pages/images/jupyter-book.webp)
-+++
-**Jupyter Book**
-:::
-
-:::{card}
-:link: https://jupyter.org
-![jupyter](pages/images/jupyter.webp)
-+++
-**Jupyter**
-:::
-
-:::{card}
-:link: https://python.org
-![python](pages/images/python.webp)
-+++
-**Python**
+:::{card} Build a Professional CV Website with Auto PDF Generation Using MyST Markdown
+:link: /posts/myst-cv-website
+:header: ![thumbnail](https://img.youtube.com/vi/KiceHVININs/maxresdefault.jpg)
+April 10, 2026 - A step-by-step tutorial on building a personal CV website with MyST Markdown and Typst that automatically generates a PDF version of your CV.
 :::
 
 ::::
 
----
 
-## Highlights
+### 2025
 
-::::{grid} 2 2 3 4
+::::{grid} 1 1 2 2
 
-:::{card} Publications 📚
-:link: pages/research
-10+ Refereed Publications
-:::
-
-:::{card} Software 💻
-:link: pages/software
-5+ Open-Source Projects
-:::
-
-:::{card} Teaching 🎓
-:link: pages/teaching
-5+ Courses Taught
-:::
-
-:::{card} Talks 🎤
-:link: pages/talks
-10+ Invited Talks
-:::
-
-:::{card} Awards 🏆
-:link: pages/awards
-5+ Awards & Honors
-:::
-
-:::{card} Community 🌍
-:link: pages/services
-Professional & institutional service
-:::
-
-:::{card} Blog ✍️
-:link: pages/blog
-Thoughts on research, software, and teaching
-:::
-
-:::{card} News 📰
-:link: pages/news
-Latest updates and milestones
+:::{card} A Reusable Template for Building Websites with MyST Markdown
+:link: /posts/myst-website-template
+:header: ![thumbnail](https://img.youtube.com/vi/wj0kAthmusA/maxresdefault.jpg)
+April 7, 2026 - A GitHub template that bundles MyST Markdown, GitHub Pages deployment, Netlify PR previews, and pre-commit hooks into a ready-to-use starting point.
 :::
 
 ::::
-
----
-
-## Recent News
-
-- **2026-04-01** - Launched personal website with MyST Markdown
-- **2026-03-15** - Published new paper on machine learning
-- **2026-02-01** - Released version 2.0 of open-source project
-- **2026-01-10** - Received Best Paper Award at Conference 2026
-
-[See all news →](pages/news)
