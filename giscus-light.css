@@ -1,14 +1,10 @@
 /*
  * Custom Giscus light theme with improved contrast.
- * Import the default light theme, then override muted text colors.
+ * Imports the default light theme, then overrides muted/subtle text colors.
  */
 @import url("https://giscus.app/themes/light.css");
 
-.gsc-header .gsc-left-header em,
-.gsc-reactions-count,
-.gsc-comments-count,
-.gsc-reply-count,
-.color-text-secondary,
-.gsc-social-reaction-summary-item {
-  color: #24292f !important;
+main {
+  --color-fg-muted: #24292f !important;
+  --color-fg-subtle: #24292f !important;
 }

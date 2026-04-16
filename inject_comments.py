@@ -65,14 +65,30 @@ GISCUS_SNIPPET = """
   }}
 
   // Retry until React has finished rendering the article content
-  var attempts = 0;
-  var timer = setInterval(function() {{
-    attempts++;
-    if (initGiscus() || attempts > 50) clearInterval(timer);
-  }}, 200);
+  function tryInit() {{
+    var attempts = 0;
+    var timer = setInterval(function() {{
+      attempts++;
+      if (initGiscus() || attempts > 100) clearInterval(timer);
+    }}, 300);
+  }}
+  tryInit();
+
+  // Re-initialize on SPA navigation (MyST book theme uses client-side routing)
+  var lastUrl = location.href;
+  var navObserver = new MutationObserver(function() {{
+    if (location.href !== lastUrl) {{
+      lastUrl = location.href;
+      // Only init on post pages
+      if (location.pathname.indexOf('/posts/') !== -1) {{
+        tryInit();
+      }}
+    }}
+  }});
+  navObserver.observe(document.body, {{ childList: true, subtree: true }});
 
   // Update Giscus theme when the site theme toggles
-  var observer = new MutationObserver(function() {{
+  var themeObserver = new MutationObserver(function() {{
     var iframe = document.querySelector('iframe.giscus-frame');
     if (iframe) {{
       iframe.contentWindow.postMessage(
@@ -81,7 +97,7 @@ GISCUS_SNIPPET = """
       );
     }}
   }});
-  observer.observe(document.documentElement, {{ attributes: true, attributeFilter: ['data-theme'] }});
+  themeObserver.observe(document.documentElement, {{ attributes: true, attributeFilter: ['data-theme'] }});
 }})();
 </script>
 """
