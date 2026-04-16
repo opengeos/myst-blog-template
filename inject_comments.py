@@ -15,12 +15,15 @@ from pathlib import Path
 GISCUS_SNIPPET = """
 <script>
 (function() {
+  // Custom light theme CSS served from this site for better contrast
+  var lightThemeUrl = window.location.origin + '/giscus-light.css';
+
   function getGiscusTheme() {
     var theme = document.documentElement.getAttribute('data-theme');
     if (!theme) {
       theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
-    return (theme === 'dark') ? 'dark' : 'light_high_contrast';
+    return (theme === 'dark') ? 'dark' : lightThemeUrl;
   }
 
   function initGiscus() {

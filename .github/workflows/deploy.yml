@@ -66,6 +66,7 @@ jobs:
       - name: Copy static files
         run: |
           cp CNAME ./_build/html/ 2>/dev/null || true
+          cp giscus-light.css ./_build/html/ 2>/dev/null || true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
