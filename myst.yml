@@ -1,7 +1,7 @@
 version: 1
 project:
-  title: Jane Doe
-  description: Personal website of Jane Doe, Assistant Professor at Example University, building open-source tools for data science.
+  title: My Blog
+  description: A blog about data science, open-source software, and teaching, powered by MyST Markdown.
   # thumbnail: images/profile-thumbnail.webp
   # authors:
   #   - name: Jane Doe
@@ -12,18 +12,15 @@ project:
   #       - Example University
   copyright: '2026'
   keywords:
+    - Blog
     - Data Science
     - Open-source Software
-    - Machine Learning
   # github: username/repo
   exclude:
     - _build
     - Thumbs.db
     - .DS_Store
     - '**.ipynb_checkpoints'
-    - cv.typ
-    - cv.pdf
-    - generate_cv.py
     - generate_rss.py
     - inject_comments.py
     - rss.xml
@@ -34,17 +31,11 @@ project:
     - README.md
   toc:
     - file: index.md
-    - file: pages/about.md
-    - file: pages/research.md
-    - file: pages/software.md
-    - file: pages/teaching.md
-    - file: pages/talks.md
-    - file: pages/awards.md
-    - file: pages/services.md
-    - file: pages/contact.md
-    - file: pages/news.md
-    - file: pages/blog.md
-    - pattern: blog/*.md
+    - file: tags/myst-markdown.md
+    - file: tags/tutorial.md
+    - file: tags/github-pages.md
+    - file: contact.md
+    - pattern: posts/*.md
       hidden: true
 site:
   options:
@@ -56,12 +47,11 @@ site:
     folders: true
   actions:
     - title: RSS
-      url: https://opengeos.org/myst-cv-template/rss.xml
+      url: https://example.com/rss.xml
   template: book-theme
   parts:
     primary_sidebar_footer: ''
     footer: |
-      [CV (PDF)](cv.pdf) |
       [GitHub](https://github.com/username) |
       [LinkedIn](https://www.linkedin.com/in/username) |
       [Twitter](https://twitter.com/username)
