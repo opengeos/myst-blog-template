@@ -19,11 +19,20 @@ GISCUS_SNIPPET = """
 <script>
 (function() {
   function getSiteTheme() {
-    var theme = document.documentElement.getAttribute('data-theme');
-    if (!theme) {
-      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    var root = document.documentElement;
+    if (root.classList.contains('dark')) {
+      return 'dark';
     }
-    return (theme === 'dark') ? 'dark' : 'light';
+    if (root.classList.contains('light')) {
+      return 'light';
+    }
+
+    var savedTheme = localStorage.getItem('myst:theme');
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+      return savedTheme;
+    }
+
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
 
   function getSiteRootUrl() {
@@ -123,7 +132,7 @@ GISCUS_SNIPPET = """
   var themeObserver = new MutationObserver(function() {
     syncGiscusTheme();
   });
-  themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 })();
 </script>
 """
