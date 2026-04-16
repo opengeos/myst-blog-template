@@ -9,29 +9,21 @@ Before using this script, set up Giscus for your repository:
 Usage: python inject_comments.py
 """
 
-import os
 from pathlib import Path
-
-# Read BASE_URL from environment (same variable used by myst build).
-# For GitHub Pages without a custom domain this is typically "/<repo-name>".
-# For a custom domain root, leave it empty or unset.
-BASE_URL = os.environ.get("BASE_URL", "").rstrip("/")
 
 # TODO: Update these values with your Giscus configuration from https://giscus.app
 GISCUS_SNIPPET = """
 <script>
-(function() {{
-  var lightThemeUrl = window.location.origin + '{base_url}/giscus-light.css';
-
-  function getGiscusTheme() {{
+(function() {
+  function getGiscusTheme() {
     var theme = document.documentElement.getAttribute('data-theme');
-    if (!theme) {{
+    if (!theme) {
       theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }}
-    return (theme === 'dark') ? 'dark' : lightThemeUrl;
-  }}
+    }
+    return (theme === 'dark') ? 'dark' : 'light';
+  }
 
-  function initGiscus() {{
+  function initGiscus() {
     // Find the article content area to append comments inside it
     var article = document.querySelector('article') || document.querySelector('main');
     if (!article) return false;
@@ -62,43 +54,43 @@ GISCUS_SNIPPET = """
     s.async = true;
     container.appendChild(s);
     return true;
-  }}
+  }
 
   // Retry until React has finished rendering the article content
-  function tryInit() {{
+  function tryInit() {
     var attempts = 0;
-    var timer = setInterval(function() {{
+    var timer = setInterval(function() {
       attempts++;
       if (initGiscus() || attempts > 100) clearInterval(timer);
-    }}, 300);
-  }}
+    }, 300);
+  }
   tryInit();
 
   // Re-initialize on SPA navigation (MyST book theme uses client-side routing)
   var lastUrl = location.href;
-  var navObserver = new MutationObserver(function() {{
-    if (location.href !== lastUrl) {{
+  var navObserver = new MutationObserver(function() {
+    if (location.href !== lastUrl) {
       lastUrl = location.href;
       // Only init on post pages
-      if (location.pathname.indexOf('/posts/') !== -1) {{
+      if (location.pathname.indexOf('/posts/') !== -1) {
         tryInit();
-      }}
-    }}
-  }});
-  navObserver.observe(document.body, {{ childList: true, subtree: true }});
+      }
+    }
+  });
+  navObserver.observe(document.body, { childList: true, subtree: true });
 
   // Update Giscus theme when the site theme toggles
-  var themeObserver = new MutationObserver(function() {{
+  var themeObserver = new MutationObserver(function() {
     var iframe = document.querySelector('iframe.giscus-frame');
-    if (iframe) {{
+    if (iframe) {
       iframe.contentWindow.postMessage(
-        {{ giscus: {{ setConfig: {{ theme: getGiscusTheme() }} }} }},
+        { giscus: { setConfig: { theme: getGiscusTheme() } } },
         'https://giscus.app'
       );
-    }}
-  }});
-  themeObserver.observe(document.documentElement, {{ attributes: true, attributeFilter: ['data-theme'] }});
-}})();
+    }
+  });
+  themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+})();
 </script>
 """
 
@@ -112,8 +104,6 @@ def main():
         print(f"No blog directory found at {blog_dir}")
         return
 
-    snippet = GISCUS_SNIPPET.format(base_url=BASE_URL)
-
     count = 0
     for html_file in blog_dir.rglob("*.html"):
         content = html_file.read_text(encoding="utf-8")
@@ -121,7 +111,7 @@ def main():
             continue
         # Insert before closing </body> tag
         if "</body>" in content:
-            content = content.replace("</body>", f"{snippet}\n</body>")
+            content = content.replace("</body>", f"{GISCUS_SNIPPET}\n</body>")
             html_file.write_text(content, encoding="utf-8")
             count += 1
             print(f"Injected comments into {html_file.name}")
