@@ -60,8 +60,8 @@ jobs:
           fi
 
       # Uncomment after configuring Giscus (see inject_comments.py)
-      # - name: Inject Giscus comments into blog posts
-      #   run: python inject_comments.py
+      - name: Inject Giscus comments into blog posts
+        run: python inject_comments.py
 
       - name: Copy static files
         run: |
