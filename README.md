@@ -141,4 +141,4 @@ Pull requests trigger the `build.yml` workflow for preview deployments. Requires
 
 ## License
 
-[MIT](LICENSE)
+[MIT License](LICENSE)
