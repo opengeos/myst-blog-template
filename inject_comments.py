@@ -20,7 +20,7 @@ GISCUS_SNIPPET = """
     if (!theme) {
       theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
-    return (theme === 'dark') ? 'dark' : 'light';
+    return (theme === 'dark') ? 'dark' : 'light_high_contrast';
   }
 
   function initGiscus() {
