@@ -47,7 +47,7 @@ site:
     folders: true
   actions:
     - title: RSS
-      url: https://example.com/rss.xml
+      url: https://opengeos.org/myst-blog-template/rss.xml
   template: book-theme
   parts:
     primary_sidebar_footer: ''
