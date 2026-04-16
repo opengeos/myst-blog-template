@@ -129,7 +129,8 @@ Pull requests trigger the `build.yml` workflow for preview deployments. Requires
    - `data-repo-id`: your repository ID (provided by giscus.app)
    - `data-category`: the Discussions category to use (e.g., `General`)
    - `data-category-id`: the category ID (provided by giscus.app)
-4. The `deploy.yml` workflow already runs `python inject_comments.py` during deployment, so comments will appear on the next push to `main`
+4. The repository includes a custom `giscus-light.css` theme for light mode. `inject_comments.py` copies it into `_build/html/` during deployment and keeps dark mode on Giscus's built-in dark theme.
+5. The `deploy.yml` workflow already runs `python inject_comments.py` during deployment, so comments will appear on the next push to `main`
 
 ## GitHub Secrets
 

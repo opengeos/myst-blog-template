@@ -129,3 +129,4 @@ book-*/images/
 
 # Private / local files
 private/
+.codex
